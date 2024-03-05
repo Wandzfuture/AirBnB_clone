@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """Defines the class User."""
 
+
 class User(BaseModel):
     """Represents a user.
-    
+
     Attributes:
         email (str): The user's email.
         password (str): The user's password.
