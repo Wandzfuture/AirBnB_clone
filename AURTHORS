@@ -1,0 +1,16 @@
+# This file lists all individuals having contributed content to the repository.
+
+Wandile-umuzi Maseko
+and
+Petro Malamule
+
+Wandile Maseko contributed files:
+user.py
+state.py
+file_storage.py
+respective __init__.py files
+and respective tests/ files
+
+Petro Malamule contributed:
+console.py
+README.md
