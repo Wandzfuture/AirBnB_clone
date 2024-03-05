@@ -2,8 +2,10 @@
 """Defines the class FileStorage."""
 import json
 
+
 class FileStorage:
     """A class for serializing and deserializing objects to a file."""
+
     __file_path = "file.json"
     __objects = {}
 
@@ -21,13 +23,13 @@ class FileStorage:
         serialized_objects = {}
         for key, value in FileStorage.__objects.items():
             serialized_objects[key] = value.to_dict()
-        
+
         with open(FileStorage.__file_path, 'w') as file:
             json.dump(serialized_objects, file)
 
     def reload(self):
         """Deserializes the JSON file to __objects."""
-        from models.base_model import BaseModel  # Importing specific classes for demonstration
+        from models.base_model import BaseModel
         try:
             with open(FileStorage.__file_path, 'r') as file:
                 data = json.load(file)
