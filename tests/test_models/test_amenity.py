@@ -19,19 +19,19 @@ class TestAmenity_instantiation(unittest.TestCase):
 
     def test_no_args_instantiates(self):
         self.assertEqual(Amenity, type(Amenity()))
-    
+
     def test_new_instance_stored_in_objects(self):
         self.assertIn(Amenity(), models.storage.all().values())
 
     def test_id_is_public_str(self):
         self.assertEqual(str, type(Amenity().id))
-    
+
     def test_created_at_is_public_datetime(self):
         self.assertEqual(datetime, type(Amenity().created_at))
 
     def test_updated_at_is_public_datetime(self):
         self.assertEqual(datetime, type(Amenity().updated_at))
-    
+
     def test_name_is_public_class_attribute(self):
         am = Amenity()
         self.assertEqual(str, type(Amenity.name))
@@ -66,7 +66,7 @@ class TestAmenity_instantiation(unittest.TestCase):
         self.assertIn("'id': '123456'", amstr)
         self.assertIn("'created_at': " + dt_repr, amstr)
         self.assertIn("'updated_at': " + dt_repr, amstr)
-    
+
     def test_args_unused(self):
         am = Amenity(None)
         self.assertNotIn(None, am.__dict__.values())
@@ -84,6 +84,7 @@ class TestAmenity_instantiation(unittest.TestCase):
         with self.assertRaises(TypeError):
             Amenity(id=None, created_at=None, updated_at=None)
 
+
 class TestAmenity_save(unittest.TestCase):
     """Unittests for testing save method of the Amenity class."""
 
@@ -91,8 +92,8 @@ class TestAmenity_save(unittest.TestCase):
     def setUp(self):
         try:
             os.rename("file.json", "tmp")
-            except IOError:
-                pass
+        except IOError:
+            pass
 
     def tearDown(self):
         try:
@@ -100,10 +101,10 @@ class TestAmenity_save(unittest.TestCase):
         except IOError:
             pass
         try:
-        os.rename("tmp", "file.json")
+            os.rename("tmp", "file.json")
         except IOError:
             pass
-    
+
     def test_one_save(self):
         am = Amenity()
         sleep(0.05)
@@ -174,7 +175,7 @@ class TestAmenity_to_dict(unittest.TestCase):
                 'updated_at': dt.isoformat(),
         }
         self.assertDictEqual(am.to_dict(), tdict)
-    
+
     def test_contrast_to_dict_dunder_dict(self):
         am = Amenity()
         self.assertNotEqual(am.to_dict(), am.__dict__)

@@ -22,13 +22,13 @@ class TestCity_instantiation(unittest.TestCase):
 
     def test_new_instance_stored_in_objects(self):
         self.assertIn(City(), models.storage.all().values())
-    
+
     def test_id_is_public_str(self):
         self.assertEqual(str, type(City().id))
 
     def test_created_at_is_public_datetime(self):
         self.assertEqual(datetime, type(City().created_at))
-    
+
     def test_updated_at_is_public_datetime(self):
         self.assertEqual(datetime, type(City().updated_at))
 
@@ -99,7 +99,7 @@ class TestCity_save(unittest.TestCase):
             os.rename("file.json", "tmp")
         except IOError:
             pass
-    
+
     def tearDown(self):
         try:
             os.remove("file.json")
@@ -109,7 +109,7 @@ class TestCity_save(unittest.TestCase):
             os.rename("tmp", "file.json")
         except IOError:
             pass
-    
+
     def test_one_save(self):
         cy = City()
         sleep(0.05)
@@ -131,7 +131,7 @@ class TestCity_save(unittest.TestCase):
     def test_save_with_arg(self):
         cy = City()
         with self.assertRaises(TypeError):
-        cy.save(None)
+            cy.save(None)
 
     def test_save_updates_file(self):
         cy = City()
@@ -146,7 +146,7 @@ class TestCity_to_dict(unittest.TestCase):
 
     def test_to_dict_type(self):
         self.assertTrue(dict, type(City().to_dict()))
-    
+
     def test_to_dict_contains_correct_keys(self):
         cy = City()
         self.assertIn("id", cy.to_dict())
@@ -180,7 +180,7 @@ class TestCity_to_dict(unittest.TestCase):
             'updated_at': dt.isoformat(),
         }
         self.assertDictEqual(cy.to_dict(), tdict)
-    
+
     def test_contrast_to_dict_dunder_dict(self):
         cy = City()
         self.assertNotEqual(cy.to_dict(), cy.__dict__)

@@ -25,13 +25,13 @@ class TestBaseModel_instantiation(unittest.TestCase):
 
     def test_id_is_public_str(self):
         self.assertEqual(str, type(BaseModel().id))
-    
+
     def test_created_at_is_public_datetime(self):
         self.assertEqual(datetime, type(BaseModel().created_at))
 
     def test_updated_at_is_public_datetime(self):
         self.assertEqual(datetime, type(BaseModel().updated_at))
-    
+
     def test_two_models_unique_ids(self):
         bm1 = BaseModel()
         bm2 = BaseModel()
@@ -177,7 +177,7 @@ class TestBaseModel_to_dict(unittest.TestCase):
                 'updated_at': dt.isoformat()
         }
         self.assertDictEqual(bm.to_dict(), tdict)
-    
+
     def test_contrast_to_dict_dunder_dict(self):
         bm = BaseModel()
         self.assertNotEqual(bm.to_dict(), bm.__dict__)
