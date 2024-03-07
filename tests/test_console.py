@@ -701,7 +701,7 @@ class TestHBNBCommand_destroy(unittest.TestCase):
             testID = output.getvalue().strip()
         with patch("sys.stdout", new=StringIO()) as output:
             obj = storage.all()["Review.{}".format(testID)]
-            command = "Review.destory({})".format(testID)
+            command = "Review.destroy({})".format(testID)
             self.assertFalse(HBNBCommand().onecmd(command))
             self.assertNotIn(obj, storage.all())
 
