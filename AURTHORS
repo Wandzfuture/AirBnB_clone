@@ -7,10 +7,27 @@ Petro Malamule
 Wandile Maseko contributed files:
 user.py
 state.py
+review.py
+place.py
 file_storage.py
-respective __init__.py files
-and respective tests/ files
+__init__.py
+-----------------------------------
+TESTS FILES
+test_user.py
+test_state.py
+test_place.py
+test_review.py
 
 Petro Malamule contributed:
 console.py
 README.md
+amenity.py
+base_model.py
+city.py
+__init__.py
+-----------------------------------
+TEST FILES
+test_base_model.py
+test_city.py
+test_amenity.py
+test_console.py
