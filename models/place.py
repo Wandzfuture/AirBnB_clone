@@ -32,16 +32,3 @@ class Place(BaseModel):
     latitude = 0.0
     longitude = 0.0
     amenity_ids = []
-
-    def __str__(self):
-        """Return the string representation of the Place object."""
-        return "[Place] ({}) {}".format(self.id, self.__dict__)
-
-    def to_dict(self):
-        """Return a dictionary representation of the Place object."""
-        place_dict = self.__dict__.copy()
-        place_dict["__class__"] = self.__class__.__name__
-        place_dict["created_at"] = self.created_at.isoformat()
-        place_dict["updated_at"] = self.updated_at.isoformat()
-        place_dict["city_id"] = self.city_id
-        return place_dict
