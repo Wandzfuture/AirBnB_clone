@@ -32,7 +32,7 @@ class FileStorage:
         serialized_objects = {}
         for key, value in FileStorage.__objects.items():
             serialized_objects[key] = value.to_dict()
-        
+
         with open(FileStorage.__file_path, 'w') as file:
             json.dump(serialized_objects, file)
 

@@ -91,7 +91,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertIn("BaseModel.{}".format(obj.id), fs.all())
 
     def test_all_returns_all_objects(self):
-        """Test that all() method returns all objects in __objects dictionary."""
+        """Test that all() method returns all objects."""
         fs = FileStorage()
         obj1 = BaseModel()
         obj2 = BaseModel()
