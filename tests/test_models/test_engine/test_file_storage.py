@@ -8,8 +8,6 @@ Unittest classes:
 """
 
 import unittest
-from unittest.mock import patch
-from io import StringIO
 import os
 import json
 import models
@@ -22,6 +20,8 @@ from models.place import Place
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
+from unittest.mock import patch
+from io import StringIO
 
 
 class TestFileStorage(unittest.TestCase):
