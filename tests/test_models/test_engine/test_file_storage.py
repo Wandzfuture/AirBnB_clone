@@ -11,6 +11,9 @@ import unittest
 from unittest.mock import patch
 from io import StringIO
 import os
+import json
+import models
+from datetime import datetime
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models.user import User
@@ -79,6 +82,24 @@ class TestFileStorage(unittest.TestCase):
         self.fs.new(obj)
         key = "{}.{}".format(obj.__class__.__name__, obj.id)
         self.assertIn(key, FileStorage._FileStorage__objects)
+
+    def test_new_object_added(self):
+        """Test that a new object is added to __objects dictionary."""
+        fs = FileStorage()
+        obj = BaseModel()
+        fs.new(obj)
+        self.assertIn("BaseModel.{}".format(obj.id), fs.all())
+
+    def test_all_returns_all_objects(self):
+        """Test that all() method returns all objects in __objects dictionary."""
+        fs = FileStorage()
+        obj1 = BaseModel()
+        obj2 = BaseModel()
+        fs.new(obj1)
+        fs.new(obj2)
+        all_objects = fs.all()
+        self.assertIn("BaseModel.{}".format(obj1.id), all_objects)
+        self.assertIn("BaseModel.{}".format(obj2.id), all_objects)
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_save(self, mock_stdout):

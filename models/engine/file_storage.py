@@ -2,6 +2,7 @@
 """Defines the class FileStorage."""
 from models.base_model import BaseModel
 import json
+import models
 from datetime import datetime
 from models.place import Place
 from models.state import State
