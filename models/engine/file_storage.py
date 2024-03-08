@@ -12,7 +12,7 @@ from models.review import Review
 
 
 class FileStorage:
-    """A class for serializing and deserializing objects to a file>
+    """A class for serializing and deserializing objects to a file
 
     Attributes:
         __file_path (str): the name of the file to save objects to.
