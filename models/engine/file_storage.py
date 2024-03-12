@@ -25,6 +25,7 @@ class FileStorage:
         return FileStorage.__objects
 
     def new(self, obj):
+<<<<<<< HEAD
         """Set in __objects obj with key <obj_class_name>.id"""
         ocname = obj.__class__.__name__
         FileStorage.__objects["{}.{}".format(ocname, obj.id)] = obj
@@ -32,6 +33,14 @@ class FileStorage:
 
     def save(self):
         """Serialize __objects to the JSON file __file_path."""
+=======
+        """Set in __objects the obj with key <obj_class_name>.id"""
+        ocname = obj.__class__.__name__
+        FileStorage.__objects["{}.{}".format(ocname, obj.id)] = obj
+
+    def save(self):
+        """Serializes __objects to the JSON file (path: __file_path)."""
+>>>>>>> 13f3fa697ecb84755c133c7a9f7c6f0ba1dba110
         odict = FileStorage.__objects
         objdict = {obj: odict[obj].to_dict() for obj in odict.keys()}
         with open(FileStorage.__file_path, "w") as f:
