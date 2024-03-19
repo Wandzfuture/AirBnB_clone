@@ -1,0 +1,40 @@
+/* Media query for extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  /* Add styles for extra small devices here */
+}
+
+/* Media query for small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  /* Add styles for small devices here */
+}
+
+/* Media query for medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  /* Add styles for medium devices here */
+}
+
+/* Media query for large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  /* Add styles for large devices here */
+}
+
+/* Footer styles */
+footer {
+  /* Ensures the footer clears any floated elements above it */
+  clear: left;
+  height: 60px;
+  width: 100%;
+  border-top: 1px solid #CCCCCC;
+  /* Flexbox styles for centering content vertically and horizontally */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF; /* Background color of the footer */
+}
+
+footer p {
+  color: #484848; /* Text color for the footer content */
+  text-align: center; /* Center-aligns the text within the footer */
+}
+
